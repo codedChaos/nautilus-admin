@@ -22,7 +22,13 @@ require_version('Gtk', '3.0')
 require_version('Nautilus', '3.0')
 
 from gi.repository import Nautilus, GObject
-from gettext import gettext, locale, bindtextdomain, textdomain
+from gettext import gettext, bindtextdomain, textdomain
+try:
+	# python 8
+	from gettext import locale
+except ImportError:
+	# python 9
+	import locale
 
 ROOT_UID = 0
 NAUTILUS_PATH="@NAUTILUS_PATH@"
