@@ -16,6 +16,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import os, subprocess
+from typing import Any
 
 from gi import require_version
 require_version('Gtk', '3.0')
@@ -104,7 +105,6 @@ class NautilusAdmin(Nautilus.MenuProvider, GObject.GObject):
 		                         tip=gettext("Open this file in the text editor with root privileges"))
 		item.connect("activate", self._gedit_run, file)
 		return item
-
 
 	def _nautilus_run(self, menu, file):
 		"""'Open as Administrator' menu item callback."""
